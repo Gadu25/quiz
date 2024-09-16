@@ -1,0 +1,1 @@
+const regxForPhNum = /^9\d{9}$/;
