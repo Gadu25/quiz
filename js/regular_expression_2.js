@@ -4,6 +4,7 @@ const replacement = '$1m $2d';
 
 let inputs = ["1/1", "11/21"]
 
-const result = text.replace(regex, replacement);
-
-console.log(result);
+for(let input of inputs){
+    let result = input.replace(regex, replacement);
+    console.log(result);
+}

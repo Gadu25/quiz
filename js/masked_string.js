@@ -2,7 +2,7 @@ function masked(string){
     let result = ""
     if(string.length > 4){
         for(let i = 0; i < string.length; i++){
-            if(i<2 || i>(string.length-3)){
+            if(i>1 && i<(string.length-2)){
                 result += "*"
             }else{
                 result += string[i]
@@ -20,7 +20,7 @@ function masked(string){
     return result    
 }
 
-let inputs = ["U229", "dc3", "ii", "i"]
+let inputs = ["U229", "dc3", "ii", "i", "something"]
 
 for(let input of inputs){
     console.log(masked(input))
