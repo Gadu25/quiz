@@ -1,35 +1,11 @@
 import moment from "moment"
 
-function parseJapanTime(japanTimeString) {
-    const japanTimeFormat = 'YYYY 年 M 月 D 日 HH 時 mm 分 ss 秒';
-    const japanTime = moment(japanTimeString, japanTimeFormat, 'ja');
-    
-    const isoString = japanTime.toISOString();
+let dateNow = moment()
 
-    const unixTime = japanTime.unix();
+const japanTimeString = dateNow.format('YYYY ねん M げつ D にち HH じ mm ふん ss びょう');
 
-    return {
-        isoString,
-        unixTime
-    };
-}
+const londonTimeString = dateNow.format('DD.MM YYYY | HH:mm:ss');
 
-function parseLondonTime(londonTimeString) {
-    const londonTimeFormat = 'DD.MM YYYY | HH: mm: ss';
-    const londonTime = moment(londonTimeString, londonTimeFormat, 'en');
-
-    const isoString = londonTime.toISOString();
-
-    const unixTime = londonTime.unix();
-
-    return {
-        isoString,
-        unixTime
-    };
-}
-
-const japanTimeString = '2024 ねん 2 げつ 7 にち 23 じ 59 ふん 12 びょう';
-const londonTimeString = '02.07 2024 | 23: 59: 12';
-
-console.log(parseJapanTime(japanTimeString));
-console.log(parseLondonTime(londonTimeString));
+console.log("Date Now:", dateNow.format('YYYY MM DD | HH:mm:ss'))
+console.log('Converted to Japan Time:', japanTimeString);
+console.log('Converted to London Time:', londonTimeString);
