@@ -1,4 +1,7 @@
 {
+  "name": "quiz",
+  "main": "js/moment.js",
+  "type": "module",
   "dependencies": {
     "moment": "^2.30.1"
   }
