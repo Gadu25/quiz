@@ -56,6 +56,33 @@ textarea {
   width: 100%;
 }
 
+table {
+  width: 100%;
+}
+
+table thead {
+  font-weight: bold;
+}
+
+table tr {
+  padding: 4px 0;
+}
+
+table tr.done {
+  color: #888888;
+}
+
+table tr.done .button {
+  cursor: default;
+}
+table tr.done .button:hover {
+  border: none;
+}
+
+table tr.done td {
+  text-decoration: line-through;
+}
+
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;

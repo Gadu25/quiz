@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import './App.css'
+import { Routes, Route, Link } from 'react-router-dom'
 import TaskList from './components/TaskList'
 import TaskForm from './components/TaskForm'
 
@@ -19,12 +20,29 @@ function App() {
     setTasks([...tasks, task]);
   }
 
+  const markAsDone = (id) => {
+    setTasks(tasks.map(task => 
+      task.id == id ? {...task, isDone: true} : task
+    ))
+  }
+
   return (
     <>
       <h1>Do React</h1>
-      <TaskList tasks={tasks} deleteTask={deleteTask}/>
-      <hr />
-      <TaskForm addTask={addTask} />
+
+      <nav>
+        <Link to="/">Tasks</Link> |{" "}
+        <Link to="/form">Form</Link>
+      </nav>
+
+      <Routes>
+        <Route path="/" element={
+          <TaskList tasks={tasks} markAsDone={markAsDone} deleteTask={deleteTask}/>
+        } />
+        <Route path="/form" element={
+          <TaskForm addTask={addTask} />
+        } />
+      </Routes>
     </>
   )
 }

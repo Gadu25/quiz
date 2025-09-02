@@ -1,6 +1,8 @@
 import { useState } from "react"
+import { useNavigate } from 'react-router-dom';
 
 function TaskForm({addTask}) {
+  const navigate = useNavigate();
   const [task, setTask] = useState({
     name: "",
     description: "",
@@ -8,6 +10,10 @@ function TaskForm({addTask}) {
   });
 
   const submit = () => {
+    if(task.name == "" || task.description == "") {
+      alert("Please complete the form.")
+      return
+    }
     // adding task
     addTask(task);
 
@@ -16,6 +22,7 @@ function TaskForm({addTask}) {
       name: "",
       description: ""
     });
+    navigate("/")
   }
 
   return (
